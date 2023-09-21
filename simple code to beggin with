@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Coding Learning Website</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .concept {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Coding Learning</h1>
+    <p>Click the button below to learn a programming concept:</p>
+    <button id="learnButton">Learn</button>
+    <div class="concept" id="conceptText"></div>
+
+    <script>
+        // JavaScript code to display programming concepts
+        const concepts = [
+            "Hello, World!",
+            "Variables and Data Types",
+            "Conditional Statements",
+            "Loops",
+            "Functions",
+            "Arrays",
+            "Objects",
+            "API Requests",
+            // Add more concepts here
+        ];
+
+        const learnButton = document.getElementById("learnButton");
+        const conceptText = document.getElementById("conceptText");
+
+        learnButton.addEventListener("click", () => {
+            // Randomly select a concept from the array
+            const randomIndex = Math.floor(Math.random() * concepts.length);
+            const randomConcept = concepts[randomIndex];
+            
+            // Display the selected concept
+            conceptText.textContent = randomConcept;
+        });
+    </script>
+</body>
+</html>
+as you can see by this simple script coding can be learnt easily you might not understand it at first but anything u do in life takes patiance!
