@@ -1,0 +1,60 @@
+here u can find a simple python code for hangman game! (feel free to use it!)   
+
+import random
+
+# List of words for the game
+words = ["python", "hangman", "programming", "computer", "algorithm", "software", "developer"]
+
+# Select a random word from the list
+word = random.choice(words)
+
+# Initialize variables
+guesses = ""
+max_attempts = 6  # Maximum number of incorrect guesses allowed
+attempts = 0
+
+# Display initial message
+print("Welcome to Hangman!")
+
+# Main game loop
+while True:
+    # Display the current progress (underscores for unrevealed letters)
+    display_word = ""
+    for letter in word:
+        if letter in guesses:
+            display_word += letter
+        else:
+            display_word += "_"
+
+    print("Word:", display_word)
+
+    # Ask the player for a guess
+    guess = input("Guess a letter: ").lower()
+
+    # Check if the guess is a single letter
+    if len(guess) != 1 or not guess.isalpha():
+        print("Please enter a single letter.")
+        continue
+
+    # Check if the guess has already been guessed
+    if guess in guesses:
+        print("You already guessed that letter.")
+        continue
+
+    # Add the guess to the list of guesses
+    guesses += guess
+
+    # Check if the guess is correct
+    if guess in word:
+        print("Correct!")
+    else:
+        print("Incorrect!")
+        attempts += 1
+
+    # Check if the player has won or lost
+    if set(word) == set(guesses):
+        print("Congratulations! You guessed the word:", word)
+        break
+    elif attempts >= max_attempts:
+        print("Sorry, you're out of attempts. The word was:", word)
+        break
